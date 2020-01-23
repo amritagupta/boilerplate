@@ -1,5 +1,16 @@
 import argparse
+import sys
 import bottle
+
+#--------some stuff needed to get AJAX to work with bottle?--------#
+def enable_cors():
+    '''
+    From https://gist.github.com/richard-flosi/3789163
+    This globally enables Cross-Origin Resource Sharing (CORS) headers for every response from this server.
+    '''
+    bottle.response.headers['Access-Control-Allow-Origin'] = '*'
+    bottle.response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
+    bottle.response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
 
 
 if __name__ == '__main__':
